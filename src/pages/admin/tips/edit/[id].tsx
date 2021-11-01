@@ -19,7 +19,7 @@ interface FormProps {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { id } = context.query;
 
-  const tipResp = await API.graphql({
+  const tipResp: any = await API.graphql({
     query: getCareTip,
     variables: {
       id,
@@ -34,7 +34,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
   }
 
-  const categoryResp = await API.graphql({
+  const categoryResp: any = await API.graphql({
     query: listCareTipCategorys,
   });
 

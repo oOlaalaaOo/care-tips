@@ -36,10 +36,10 @@ const Login: NextPage = () => {
 
         setLoginError("Not a valid user.");
       }
-    } catch (error) {
+    } catch (error: any) {
       console.log("error signing in", error);
 
-      if (error && error.message) {
+      if ("message" in error) {
         setLoginError(error.message);
       }
     } finally {

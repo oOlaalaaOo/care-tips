@@ -107,6 +107,7 @@ const Register: NextPage = () => {
               defaultValue=''
               rules={{
                 required: true,
+                minLength: 8,
               }}
               render={({ field: { onChange, onBlur, value } }) => (
                 <AppInput
@@ -121,7 +122,12 @@ const Register: NextPage = () => {
               )}
             />
 
-            {errors.password && <small>Password is required.</small>}
+            {errors.password && errors.password.type === "required" && (
+              <small>Password is required.</small>
+            )}
+            {errors.password && errors.password.type === "minLength" && (
+              <small>Password must be atleast 8 characters long.</small>
+            )}
           </div>
           <div></div>
           <div className='flex flex-row flex-wrap justify-between'>

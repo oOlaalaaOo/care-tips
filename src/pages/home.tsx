@@ -60,7 +60,7 @@ const Home: NextPage = () => {
 
   const fetchCategories = async () => {
     try {
-      const resp = await API.graphql({ query: listCareTipCategorys });
+      const resp: any = await API.graphql({ query: listCareTipCategorys });
 
       setCategories(resp.data.listCareTipCategorys.items);
     } catch (err) {

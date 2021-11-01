@@ -17,9 +17,9 @@ const AdminTips: NextPage = () => {
 
   const fetchTips = async () => {
     try {
-      const resp = await API.graphql({ query: listCareTips });
+      const resp: any = await API.graphql({ query: listCareTips });
 
-      setTips(resp?.data.listCareTips.items);
+      setTips(resp.data.listCareTips.items);
     } catch (err) {
       console.log("err", err);
     }

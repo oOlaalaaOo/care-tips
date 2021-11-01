@@ -17,7 +17,7 @@ const AdminCategories: NextPage = () => {
 
   const fetchCategories = async () => {
     try {
-      const resp = await API.graphql({ query: listCareTipCategorys });
+      const resp: any = await API.graphql({ query: listCareTipCategorys });
 
       console.log("resp", resp);
       setCategories(resp?.data.listCareTipCategorys.items);

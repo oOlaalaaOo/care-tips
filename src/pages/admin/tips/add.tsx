@@ -16,7 +16,7 @@ interface FormProps {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const resp = await API.graphql({
+  const resp: any = await API.graphql({
     query: listCareTipCategorys,
   });
 

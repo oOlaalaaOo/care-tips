@@ -36,11 +36,11 @@ const Login: NextPage = () => {
 
         setLoginError("Only Admin account can access this page.");
       }
-    } catch (error) {
+    } catch (error: any) {
       console.log("error signing in", error);
 
-      if (error && error.message) {
-        setLoginError(error.message);
+      if ("message" in error) {
+        setLoginError(error?.message);
       }
     } finally {
       setIsLoading(false);
