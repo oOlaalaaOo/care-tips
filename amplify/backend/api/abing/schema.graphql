@@ -1,0 +1,19 @@
+type CareTip @model 
+@key(name: "byCareTipCategory", fields: ["careTipCategoryID", "tip"]) {
+	id: ID!
+	tip: String!
+  careTipCategoryID: ID!
+  careTipCategory: CareTipCategory @connection(fields: ["careTipCategoryID"])
+	createdAt: AWSDateTime!
+	updatedAt: AWSDateTime!
+}
+
+type CareTipCategory @model {
+	id: ID!
+	name: String!
+	description: String
+	image: String
+  careTips: [CareTip] @connection(keyName: "byCareTipCategory", fields: ["id"])
+	createdAt: AWSDateTime!
+	updatedAt: AWSDateTime!
+}

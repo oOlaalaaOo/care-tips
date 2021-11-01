@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-abing-staging-133218-authRole",
+      "UnauthRoleArn": "arn:aws:iam::739681354454:role/amplify-abing-staging-133218-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::739681354454:role/amplify-abing-staging-133218-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-abing-staging-133218-deployment",
+      "UnauthRoleName": "amplify-abing-staging-133218-unauthRole",
+      "StackName": "amplify-abing-staging-133218",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:739681354454:stack/amplify-abing-staging-133218/fa231620-3597-11ec-a6fd-0a197e51121c",
+      "AmplifyAppId": "d3evpaaylfc8j7"
+    },
+    "categories": {
+      "auth": {
+        "abing39ee052d": {}
+      }
+    }
+  }
+}
