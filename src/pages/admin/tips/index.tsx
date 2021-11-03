@@ -2,12 +2,38 @@ import React from "react";
 import type { NextPage } from "next";
 import AppButton from "../../../components/app-button/app-button";
 import API from "@aws-amplify/api";
-import { listCareTips } from "../../../graphql/queries";
 import { useRouter } from "next/dist/client/router";
 import { deleteCareTip } from "../../../graphql/mutations";
 import AppModal from "../../../components/app-modal/app-modal";
 import AdminTopNavbar from "../../../components/admin-top-navbar/admin-top-navbar";
 import WithAdminAuth from "../../../hoc/with-admin-auth";
+
+const listCareTips = /* GraphQL */ `
+  query ListCareTips(
+    $filter: ModelCareTipFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listCareTips(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        tip
+        careTipCategoryID
+        careTipCategory {
+          id
+          name
+          description
+          image
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 
 const AdminTips: NextPage = () => {
   const router = useRouter();
