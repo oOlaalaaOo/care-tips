@@ -97,25 +97,35 @@ const AdminTips: NextPage = () => {
               <div className='w-2/12 px-2 font-bold'>Action</div>
             </div>
             {tips.map((tip) => (
-              <div className='flex flex-row flex-wrap py-3 border' key={tip.id}>
-                <div className='w-4/12 px-2'>{tip.tip}</div>
-                <div className='w-3/12 px-2'>{tip.careTipCategory.name}</div>
-                <div className='w-3/12 px-2'>{tip.updatedAt}</div>
-                <div className='w-2/12 px-2 flex flex-row'>
-                  <AppButton
-                    label='Edit'
-                    size='sm'
-                    theme='secondary'
-                    onClick={() => router.push(`/admin/tips/edit/${tip.id}`)}
-                  />
-                  <AppButton
-                    label='Delete'
-                    size='sm'
-                    theme='secondary'
-                    onClick={() => setSelectedTip(tip)}
-                  />
-                </div>
-              </div>
+              <>
+                {tip.careTipCategory !== null && (
+                  <div
+                    className='flex flex-row flex-wrap py-3 border'
+                    key={tip.id}>
+                    <div className='w-4/12 px-2 truncate'>{tip.tip}</div>
+                    <div className='w-3/12 px-2'>
+                      {tip.careTipCategory.name}
+                    </div>
+                    <div className='w-3/12 px-2'>{tip.updatedAt}</div>
+                    <div className='w-2/12 px-2 flex flex-row'>
+                      <AppButton
+                        label='Edit'
+                        size='sm'
+                        theme='secondary'
+                        onClick={() =>
+                          router.push(`/admin/tips/edit/${tip.id}`)
+                        }
+                      />
+                      <AppButton
+                        label='Delete'
+                        size='sm'
+                        theme='secondary'
+                        onClick={() => setSelectedTip(tip)}
+                      />
+                    </div>
+                  </div>
+                )}
+              </>
             ))}
           </div>
         </div>
